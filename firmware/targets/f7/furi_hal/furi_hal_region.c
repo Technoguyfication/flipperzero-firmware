@@ -107,13 +107,9 @@ const char* furi_hal_region_get_name() {
 }
 
 bool furi_hal_region_is_frequency_allowed(uint32_t frequency) {
-    if(!furi_hal_region) {
-        return false;
-    }
-
-    const FuriHalRegionBand* band = furi_hal_region_get_band(frequency);
-    if(!band) {
-        return false;
+    // need to do something with frequency otherwise compiler will complain about unused variable
+    if (frequency == 0) {
+        return true;
     }
 
     return true;
